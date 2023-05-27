@@ -84,10 +84,11 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 \pagestyle{footcenter}
 \chapterpagestyle{footcenter}
 
-
+% Подсветка кода
 \usepackage{pythonhighlight}
 
-
+% Для приложений А3 формата
+\usepackage[paper=A4]{typearea}
 \begin{document}
 	%\includepdf[pages={1-1}]{Titul_vkr.pdf}
 	% Содержание
@@ -104,8 +105,9 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 	\newpage
 	\input{Chapter_4.tex}
 	\newpage
-	%\includepdf[pages={1-1}]{workArea.pdf}
-	%\newpage
+	\input{Conclusion.tex}
+
+
 	%\includepdf[pages={1-1}]{net_scheme.pdf}
 	
 	\bibliographystyle{unsrt}
@@ -113,5 +115,32 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 	\let\BibEmph=\emph
 	\bibliographystyle{ugost2008}  %% стилевой файл для оформления по ГОСТу
 	\bibliography{Bak}
+	\newpage
+	
+	\appendix
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ А}
+	\includepdf[pages=1,pagecommand={}]{work_area.pdf}
+	\newpage
+	
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ Б}
+	\KOMAoptions{paper=A3}
+	\recalctypearea
+	\includepdf[pages=1,angle=90,noautoscale]{knee_draw}
+	\includepdf[pages=1,angle=90,noautoscale]{hip_draw}
+	\includepdf[pages=1,angle=90,noautoscale]{longerone_draw}
+	
+	\KOMAoptions{paper=A4}
+	\recalctypearea
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ В}
+	\begin{center}
+		\large\text{ПРИЛОЖЕНИЕ В}
+	\end{center}
+	
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[width=1\textwidth]{net_scheme.png}
+		\end{center}
+	\end{figure}
+
 	
 \end{document}
