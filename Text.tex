@@ -20,8 +20,6 @@ a4paper, mag=1000,
 left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 ]{geometry}
 
-
-
 \usepackage[T2A]{fontenc}
 
 \usepackage[utf8]{inputenc}
@@ -77,7 +75,6 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 
 % Включать подсекции в оглавление
 \setcounter{tocdepth}{2}
-
 \graphicspath{{img/}}
 
 
@@ -89,10 +86,14 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 
 % Для приложений А3 формата
 \usepackage[paper=A4]{typearea}
+
+
+
 \begin{document}
-	%\includepdf[pages={1-1}]{Titul_vkr.pdf}
-	% Содержание
-	
+	\includepdf[pages={1-1}]{titul.pdf}
+	\newpage
+	\includepdf[pages={1-4}]{zadanie.pdf}
+	\newpage
 	\input{Introduction_asp.tex}
 	\newpage
 	\input{Chapter_0.tex}
@@ -123,17 +124,24 @@ left=3cm, right=1.5cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1.25cm
 	\newpage
 	
 	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ Б}
-	\KOMAoptions{paper=A3}
+	\KOMAoptions{paper=A4}
 	\recalctypearea
-	\includepdf[pages=1,angle=90,noautoscale]{knee_draw}
-	\includepdf[pages=1,angle=90,noautoscale]{hip_draw}
-	\includepdf[pages=1,angle=90,noautoscale]{longerone_draw}
+	\includepdf[pages=1,angle=90,]{knee_draw}
+	\includepdf[pages=1,angle=90,]{hip_draw}
+	\includepdf[pages=1,angle=90,]{longerone_draw}
 	
+	\newpage
 	\KOMAoptions{paper=A4}
 	\recalctypearea
 	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ В}
+	\includepdf[pages=1-9,pagecommand={}]{servo_din_final.pdf}
+	\newpage
+	
+	\KOMAoptions{paper=A4}
+	\recalctypearea
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ Г}
 	\begin{center}
-		\large\text{ПРИЛОЖЕНИЕ В}
+		\large\text{ПРИЛОЖЕНИЕ Г}
 	\end{center}
 	
 	\begin{figure}[h!]
